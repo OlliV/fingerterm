@@ -48,7 +48,7 @@ void copyFileFromResources(QString from, QString to);
 
 int main(int argc, char *argv[])
 {
-    QSettings *settings = new QSettings(QDir::homePath()+"/.config/FingerTerm/settings.ini", QSettings::IniFormat);
+    QSettings *settings = new QSettings(QDir::homePath()+"/.config/ThumbTerm/settings.ini", QSettings::IniFormat);
     defaultSettings(settings);
 
     // fork the child process before creating QGuiApplication
@@ -117,7 +117,7 @@ int main(int argc, char *argv[])
     dba->setAppWindow(&view);
 
     // needed for MFeedback, also creates the dbus interface
-    MComponentData::createInstance(argc, argv, "fingerterm", dba);
+    MComponentData::createInstance(argc, argv, "thumbterm", dba);
 #endif
 
     Terminal term;

@@ -24,7 +24,7 @@
 #ifdef MEEGO_EDITION_HARMATTAN
 
 DbusAdaptor::DbusAdaptor(QObject *parent):
-    MApplicationService("org.hqh.fingerterm", parent),
+    MApplicationService("org.hqh.thumbterm", parent),
     mainWin(0)
 {
 }

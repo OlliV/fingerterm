@@ -21,7 +21,7 @@
 
 #include <QtCore>
 #include <QtGui>
-#include <QDBusInterface>
+#include <QtDBus/QDBusInterface>
 #include <QGuiApplication>
 #include <QQuickView>
 #include <QDebug>
@@ -32,7 +32,7 @@
 #include "textrender.h"
 #include "version.h"
 
-#include <QFeedbackEffect>
+//#include <QFeedbackEffect>
 
 Util::Util(QSettings *settings, QObject *parent) :
     QObject(parent),
@@ -104,7 +104,7 @@ void Util::openNewWindow()
         iface.call("launch", params);
     }
 #else
-    QProcess::startDetached("/usr/bin/fingerterm");
+    QProcess::startDetached("/usr/bin/thumbterm");
 #endif //MEEGO_EDITION_HARMATTAN
 }
 
@@ -207,7 +207,7 @@ void Util::keyPressFeedback()
     if( !settingsValue("ui/keyPressFeedback").toBool() )
         return;
 
-    QFeedbackEffect::playThemeEffect(QFeedbackEffect::PressWeak);
+    //QFeedbackEffect::playThemeEffect(QFeedbackEffect::PressWeak);
 }
 
 void Util::keyReleaseFeedback()
@@ -216,7 +216,7 @@ void Util::keyReleaseFeedback()
         return;
 
     // TODO: check what's more comfortable, only press, or press and release
-    QFeedbackEffect::playThemeEffect(QFeedbackEffect::ReleaseWeak);
+    //QFeedbackEffect::playThemeEffect(QFeedbackEffect::ReleaseWeak);
 }
 
 void Util::bellAlert()
@@ -232,8 +232,8 @@ void Util::bellAlert()
                           "/org/maemo/m",
                           "com.nokia.MApplicationIf",
                           "launch");
-        MNotification notif(MNotification::ImReceivedEvent, "FingerTerm", "Terminal alert was received");
-        notif.setImage("/usr/share/icons/hicolor/80x80/apps/fingerterm.png");
+        MNotification notif(MNotification::ImReceivedEvent, "ThhumbTerm", "Terminal alert was received");
+        notif.setImage("/usr/share/icons/hicolor/80x80/apps/thumbterm.png");
         notif.setAction(act);
         notif.publish();
     } else if( settingsValue("gen/visualBell").toBool() ) {

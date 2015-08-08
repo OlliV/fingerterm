@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Application
-Name=Terminal
-Exec=fingerterm
+Name=ThumbTerm
+Exec=thumbterm
 Icon=icon-l-terminal
