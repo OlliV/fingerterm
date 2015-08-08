@@ -365,54 +365,6 @@ Rectangle {
                                 }
                             }
                         }
-                        Rectangle {
-                            visible: util.isHarmattan()
-                            width: 180
-                            height: 68
-                            radius: 5
-                            color: "#606060"
-                            border.color: "#000000"
-                            border.width: 1
-                            Column {
-                                Text {
-                                    width: 180
-                                    height: 20
-                                    color: "#ffffff"
-                                    font.pointSize: util.uiFontSize()-1;
-                                    text: "Allow swiping"
-                                    horizontalAlignment: Text.AlignHCenter
-                                }
-                                Row {
-                                    Button {
-                                        text: "No"
-                                        width: 60
-                                        height: 48
-                                        highlighted: currentSwipeLocking=="false"
-                                        onClicked: {
-                                            changeSwipeLocking("false")
-                                        }
-                                    }
-                                    Button {
-                                        text: "Yes"
-                                        width: 60
-                                        height: 48
-                                        highlighted: currentSwipeLocking=="true"
-                                        onClicked: {
-                                            changeSwipeLocking("true")
-                                        }
-                                    }
-                                    Button {
-                                        text: "Auto"
-                                        width: 60
-                                        height: 48
-                                        highlighted: currentSwipeLocking=="auto"
-                                        onClicked: {
-                                            changeSwipeLocking("auto")
-                                        }
-                                    }
-                                }
-                            }
-                        }
                         Button {
                             text: "New window"
                             onClicked: {
@@ -435,14 +387,6 @@ Rectangle {
                                 aboutDialog.termW = term.termSize().width
                                 aboutDialog.termH = term.termSize().height
                                 aboutDialog.state = "visible"
-                            }
-                        }
-                        Button {
-                            visible: (currentSwipeLocking=="false" && util.isHarmattan()) || !util.isHarmattan();
-                            text: "Minimize"
-                            onClicked: {
-                                hideMenu();
-                                util.windowMinimize();
                             }
                         }
                         Button {

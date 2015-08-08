@@ -1,5 +1,6 @@
 TARGET = thumbterm
-CONFIG += sailfishapp
+CONFIG += sailfishapp link_pkgconfig
+PKGCONFIG += nemonotifications-qt5
 LIBS += -lutil
 
 system($$PWD/updateversion.sh)
@@ -12,7 +13,6 @@ HEADERS += \
     src/util.h \
     src/keyloader.h \
     src/mainwindow.h \
-    src/dbusadaptor.h \
     src/version.h
 SOURCES += \
     src/main.cpp \
@@ -21,8 +21,7 @@ SOURCES += \
     src/ptyiface.cpp \
     src/util.cpp \
     src/keyloader.cpp \
-    src/mainwindow.cpp \
-    src/dbusadaptor.cpp
+    src/mainwindow.cpp
 
 OTHER_FILES += \
     qml/Main.qml \

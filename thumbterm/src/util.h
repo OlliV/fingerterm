@@ -39,7 +39,6 @@ public:
     void setTerm(Terminal* term) { iTerm = term; }
     void setRenderer(TextRender* r) { iRenderer = r; }
 
-    Q_INVOKABLE void windowMinimize();
     Q_INVOKABLE void openNewWindow();
     Q_INVOKABLE void updateSwipeLock(bool suggestedState);
 
@@ -49,7 +48,6 @@ public:
     Q_INVOKABLE void setSettingsValue(QString key, QVariant value);
 
     Q_INVOKABLE int uiFontSize();
-    Q_INVOKABLE bool isHarmattan();
 
     Q_INVOKABLE void keyPressFeedback();
     Q_INVOKABLE void keyReleaseFeedback();

@@ -85,75 +85,22 @@ void Util::onMainWinFocusChanged(bool in)
     }
 }
 
-void Util::windowMinimize()
-{
-    iWindow->minimize();
-}
-
 void Util::openNewWindow()
 {
-#ifdef MEEGO_EDITION_HARMATTAN
-
-    QDBusInterface iface(MComponentData::instance()->serviceName(),
-                         "/org/maemo/m",
-                         "com.nokia.MApplicationIf");
-
-    if (iface.isValid()) {
-        QStringList params;
-        params.append("new");
-        iface.call("launch", params);
-    }
-#else
     QProcess::startDetached("/usr/bin/thumbterm");
-#endif //MEEGO_EDITION_HARMATTAN
 }
 
 void Util::updateSwipeLock(bool suggestedState)
 {
-#ifdef MEEGO_EDITION_HARMATTAN
-    if (settingsValue("ui/allowSwipe").toString()=="auto") {
-        if(suggestedState) {
-            enableSwipe();
-        } else {
-            disableSwipe();
-        }
-    } else if (settingsValue("ui/allowSwipe").toString()=="false") {
-        disableSwipe();
-    } else if (settingsValue("ui/allowSwipe").toString()=="true") {
-        enableSwipe();
-    }
-#else
     Q_UNUSED(suggestedState)
-#endif //MEEGO_EDITION_HARMATTAN
 }
 
 void Util::disableSwipe()
 {
-#ifdef MEEGO_EDITION_HARMATTAN
-    if(swipeModeSet && !swipeAllowed)
-        return;
-
-    if (iWindow) {
-        iWindow->disableSwipe();
-        swipeModeSet = true;
-        swipeAllowed = false;
-    }
-#endif //MEEGO_EDITION_HARMATTAN
 }
 
 void Util::enableSwipe()
 {
-#ifdef MEEGO_EDITION_HARMATTAN
-    if(swipeModeSet && swipeAllowed)
-        return;
-
-    if (iWindow)
-    {
-        iWindow->enableSwipe();
-        swipeModeSet = true;
-        swipeAllowed = true;
-    }
-#endif //MEEGO_EDITION_HARMATTAN
 }
 
 QString Util::configPath()
@@ -186,20 +133,7 @@ QString Util::versionString()
 
 int Util::uiFontSize()
 {
-#ifdef MEEGO_EDITION_HARMATTAN
-    return 14;
-#else
     return 12;
-#endif
-}
-
-bool Util::isHarmattan()
-{
-#ifdef MEEGO_EDITION_HARMATTAN
-    return true;
-#else
-    return false;
-#endif
 }
 
 void Util::keyPressFeedback()
@@ -224,36 +158,12 @@ void Util::bellAlert()
     if(!iWindow)
         return;
 
-#ifdef MEEGO_EDITION_HARMATTAN
-    if(settingsValue("gen/backgroundBellNotify").toBool() &&
-       !iWindow->hasFocus())
-    {
-        MRemoteAction act(MComponentData::instance()->serviceName(),
-                          "/org/maemo/m",
-                          "com.nokia.MApplicationIf",
-                          "launch");
-        MNotification notif(MNotification::ImReceivedEvent, "ThhumbTerm", "Terminal alert was received");
-        notif.setImage("/usr/share/icons/hicolor/80x80/apps/thumbterm.png");
-        notif.setAction(act);
-        notif.publish();
-    } else if( settingsValue("gen/visualBell").toBool() ) {
-        emit visualBell();
-    }
-#else
     if( settingsValue("gen/visualBell").toBool() )
         emit visualBell();
-#endif
 }
 
 void Util::clearNotifications()
 {
-#ifdef MEEGO_EDITION_HARMATTAN
-    QList<MNotification*> notifs = MNotification::notifications();
-    foreach(MNotification* n, notifs) {
-        if( n->remove() )
-            delete n;
-    }
-#endif //MEEGO_EDITION_HARMATTAN
 }
 
 void Util::mousePress(float eventX, float eventY) {
