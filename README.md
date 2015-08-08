@@ -93,11 +93,3 @@ This fork will therefore only run on Sailfish OS (i.e. on the Jolla).
    files you didn't intend to delete):
 
     git clean -fdx
-    
-##Reverting to the stock Terminal app
-
-The version of fingerterm that ships as the Terminal app on Jolla is the one
-from the `master` branch on
-[nemomobile's GitHub repository](https://github.com/nemomobile/fingerterm).
-This is where this repo was forked from. You can build that version using
-the instructions above.
