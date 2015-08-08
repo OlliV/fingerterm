@@ -1,4 +1,4 @@
-TARGET = harbour-thumbterm
+TARGET = thumbterm
 CONFIG += sailfishapp link_pkgconfig
 PKGCONFIG += nemonotifications-qt5
 LIBS += -lutil

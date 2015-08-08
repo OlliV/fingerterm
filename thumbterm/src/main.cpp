@@ -43,7 +43,7 @@ void copyFileFromResources(QString from, QString to);
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-    QSettings *settings = new QSettings(QDir::homePath()+"/.config/harbour-thumbterm/settings.ini", QSettings::IniFormat);
+    QSettings *settings = new QSettings(QDir::homePath()+"/.config/thumbterm/settings.ini", QSettings::IniFormat);
     defaultSettings(settings);
 
     QCoreApplication::setApplicationName("Thumbterm");
