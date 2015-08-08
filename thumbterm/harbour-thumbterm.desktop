@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=ThumbTerm
+Categories=Utility
+Exec=harbour-thumbterm
+Icon=harbour-thumbterm
