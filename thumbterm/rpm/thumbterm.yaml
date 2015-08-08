@@ -39,7 +39,6 @@ Requires:
   - qt5-qtdeclarative-import-window2
   - qt5-qtdeclarative-import-xmllistmodel
   - sailfishsilica-qt5 >= 0.10.9
-  - nemonotifications-qt5 >= 1.0.4
 
 # All installed files
 Files:
