@@ -41,7 +41,7 @@ extern "C" {
 void defaultSettings(QSettings* settings);
 void copyFileFromResources(QString from, QString to);
 
-int main(int argc, char *argv[])
+Q_DECL_EXPORT int main(int argc, char *argv[])
 {
     QSettings *settings = new QSettings(QDir::homePath()+"/.config/harbour-thumbterm/settings.ini", QSettings::IniFormat);
     defaultSettings(settings);
