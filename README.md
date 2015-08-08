@@ -1,14 +1,15 @@
-# thumbterm
+ThumbTerm
+=========
 
-fingerterm is a terminal emulator designed for Jolla's Jolla device.
+ThumbTerm is a terminal emulator designed for Jolla's Jolla device.
 
-#UI tweaks for fingerterm
+# UI tweaks for fingerterm
 
 fingerterm is the Terminal application that ships with Sailfish OS on the
 [Jolla smartphone](http://jolla.com).  This fork contains a few UI tweaks
 that improve fingerterm's appearance and usability. 
 
-###Usability improvements
+### Usability improvements
 - Removed the spacing between keys on the virtual keyboard to maximize key sizes. 
 - Reduced the opacity of the keyboard when inactive to make it easier to 
   read text obscured by the inactive keyboard.
@@ -29,7 +30,7 @@ that improve fingerterm's appearance and usability.
   [having it set causes bash to start in POSIX mode](http://www.delorie.com/gnu/docs/bash/bashref_62.html#IDX214)
   which causes it to [not read the .bashrc on startup](http://lists.gnu.org/archive/html/bug-bash/2001-10/msg00117.html)
 
-###Cosmetic changes
+### Cosmetic changes
 - Made default font and virtual keyboard green.
 - Made the window background translucent.
 - Added a cover (full credit to [Thomas Perl](https://github.com/tph) for this code)
@@ -39,13 +40,9 @@ that improve fingerterm's appearance and usability.
 ![fingerterm virtual keyboard](thumbterm/screenshots/thumbterm-keyboard.jpg)
 
 
-##Known issues
-Several of these changes required the use of Sailfish OS-specific components.
-This fork will therefore only run on Sailfish OS (i.e. on the Jolla). 
+## Build instructions
 
-##Build instructions
-
-###If you're new to Qt and Sailfish OS development
+### If you're new to Qt and Sailfish OS development
 
 1) Download and install
    the [Sailfish SDK](https://sailfishos.org/develop.html). 
