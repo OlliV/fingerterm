@@ -43,10 +43,35 @@ ApplicationWindow {
         Rectangle {
         property string fgcolor: "black"
         property string bgcolor: "#00000000" // Transparent
-        property int fontSize: 14
+        property int fontSize: 14*pixelRatio
 
         property int fadeOutTime: 80
         property int fadeInTime: 350
+        property real pixelRatio: appWindow.width / 540
+
+        // layout constants
+        property int buttonWidthSmall: 60*pixelRatio
+        property int buttonWidthLarge: 180*pixelRatio
+        property int buttonWidthHalf: 90*pixelRatio
+
+        property int buttonHeightSmall: 48*pixelRatio
+        property int buttonHeightLarge: 68*pixelRatio
+
+        property int headerHeight: 20*pixelRatio
+
+        property int radiusSmall: 5*pixelRatio
+        property int radiusMedium: 10*pixelRatio
+        property int radiusLarge: 15*pixelRatio
+
+        property int paddingSmall: 5*pixelRatio
+        property int paddingMedium: 10*pixelRatio
+
+        property int fontSizeSmall: 14*pixelRatio
+        property int fontSizeLarge: 24*pixelRatio
+
+        property int uiFontSize: util.uiFontSize()*pixelRatio
+
+        property int scrollBarWidth: 6*window.pixelRatio
 
         anchors.fill: parent
 
@@ -199,8 +224,8 @@ ApplicationWindow {
             x: window.width - width
             y: 0
             z: 1
-            width: menuImg.width + 60
-            height: menuImg.height + 30
+            width: menuImg.width + 60*window.pixelRatio
+            height: menuImg.height + 30*window.pixelRatio
             color: "transparent"
             opacity: 0.5
             Image {
@@ -209,6 +234,7 @@ ApplicationWindow {
                 source: "qrc:/icons/menu.png"
                 height: sourceSize.height
                 width: sourceSize.width
+		scale: window.pixelRatio
             }
             MouseArea {
                 anchors.fill: parent
@@ -311,7 +337,7 @@ ApplicationWindow {
             z: 100
             opacity: 0
             text: ""
-            font.pointSize: 40
+            font.pointSize: 40*window.pixelRatio
             Behavior on opacity {
                 id: textNotifyAnim
                 NumberAnimation { duration: 500; }
@@ -333,7 +359,7 @@ ApplicationWindow {
             property string label: ""
             Text {
                 color: "#000000"
-                font.pointSize: 64
+                font.pointSize: 64*window.pixelRatio
                 anchors.centerIn: parent
                 text: visualKeyFeedbackRect.label
             }
