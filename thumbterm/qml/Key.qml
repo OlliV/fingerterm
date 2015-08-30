@@ -43,7 +43,8 @@ Rectangle {
     property int pressMouseX: 0
 
     width: window.width/12   // some default
-    height: window.height/8 < 55 ? window.height/8 : 55
+    height: window.height/8 < 55*window.pixelRatio ? window.height/8 : 55*window.pixelRatio
+    radius: window.radiusSmall
 
     color: label=="" ?
                "transparent"
@@ -58,7 +59,6 @@ Rectangle {
 
     border.color: label=="" ? "transparent" : keyboard.keyBorderColor
     border.width: 0
-    radius: 0
 
     property bool shiftActive: (keyboard.keyModifiers & Qt.ShiftModifier) && !sticky
 
@@ -74,12 +74,13 @@ Rectangle {
         anchors.centerIn: parent
         opacity: key.labelOpacity
         source: { if(key.label.length>1 && key.label.charAt(0)==':') return "qrc:/icons/"+key.label.substring(1)+".png"; else return ""; }
+	scale: window.pixelRatio
     }
 
     Column {
         visible: keyImage.source == ""
         anchors.centerIn: parent
-        spacing: -17
+        spacing: -17*window.pixelRatio
 
         Text {
             id: keyAltLabel
@@ -92,7 +93,7 @@ Rectangle {
 
             opacity: key.labelOpacity * (highlighted ? 1.0 : 0.5)
 
-            font.pointSize: (highlighted ? 24 : 14) * (text.length > 1 ? 0.5 : 1.0)
+            font.pointSize: (highlighted ? window.fontSizeLarge : window.fontSizeSmall) * (text.length > 1 ? 0.5 : 1.0)
         }
 
         Text {
@@ -117,7 +118,7 @@ Rectangle {
 
             opacity: key.labelOpacity * (highlighted ? 1.0 : 0.2)
 
-            font.pointSize: (highlighted ? 24 : 14) * (text.length > 1 ? 0.5 : 1.0)
+            font.pointSize: (highlighted ? window.fontSizeLarge : window.fontSizeSmall) * (text.length > 1 ? 0.5 : 1.0)
         }
     }
 
